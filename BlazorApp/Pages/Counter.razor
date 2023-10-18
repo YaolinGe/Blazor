@@ -5,30 +5,60 @@
 <h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
+<h3>Current score: @score</h3>
+
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 <p me="test">Hello here comes the new test!</p>
 
-<script>
-    var paragraphs = document.querySelectorAll("p");
+<p>First render: @isFirstRender</p>
 
-    paragraphs.forEach(function(paragraph)
-    {
-        var customAttribute = paragraph.getAttribute("me");
-        console.log(customAttribute);
-    });
-
-    var test = document.querySelector("p[me=test]");
-    console.log(test);
-
-</script>
+<Button Color="Color.Primary" Clicked="@(async () => await HandleRedraw())">Redraw</Button>
+<LineChart @ref="lineChart" TItem="double" />
 
 @code {
+    LineChart<double> lineChart;
+    private List<double> scoreData = new List<double>();
+    private List<string> labels = new List<string>(); 
+    private bool isFirstRender = true; 
+
     private int currentCount = 0;
+    private double score = 3.14;
+    Random random = new Random();
 
     private void IncrementCount()
     {
         currentCount++;
+        score = random.Next(1, 20);
+        scoreData.Add(score);
+        labels.Add(currentCount.ToString());
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        isFirstRender = firstRender;
+        if (firstRender)
+        {
+            await HandleRedraw();
+        }
+    }
+
+    async Task HandleRedraw()
+    {
+        await lineChart.Clear();
+        await lineChart.AddLabelsDatasetsAndUpdate(labels, GetLineChartDataset());
+    }
+
+    LineChartDataset<double> GetLineChartDataset()
+    {
+        return new LineChartDataset<double>
+            {
+                Label = "# of randoms",
+                Data = scoreData,
+                Fill = true,
+                PointRadius = 3,
+                CubicInterpolationMode = "monotone",
+            };
     }
 }

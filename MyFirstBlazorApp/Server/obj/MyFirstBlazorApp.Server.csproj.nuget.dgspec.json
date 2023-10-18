@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Server\\MyFirstBlazorApp.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\MyFirstBlazorApp.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\MyFirstBlazorApp.Client.csproj",
+        "projectName": "MyFirstBlazorApp.Client",
+        "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\MyFirstBlazorApp.Client.csproj",
+        "packagesPath": "C:\\Users\\nq9093\\.nuget\\packages\\",
+        "outputPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nq9093\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/silenttools/_packaging/CoroPlusDev/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj": {
+                "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.12, 7.0.12]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Server\\MyFirstBlazorApp.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Server\\MyFirstBlazorApp.Server.csproj",
+        "projectName": "MyFirstBlazorApp.Server",
+        "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Server\\MyFirstBlazorApp.Server.csproj",
+        "packagesPath": "C:\\Users\\nq9093\\.nuget\\packages\\",
+        "outputPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nq9093\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/silenttools/_packaging/CoroPlusDev/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\MyFirstBlazorApp.Client.csproj": {
+                "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Client\\MyFirstBlazorApp.Client.csproj"
+              },
+              "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj": {
+                "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj",
+        "projectName": "MyFirstBlazorApp.Shared",
+        "projectPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\MyFirstBlazorApp.Shared.csproj",
+        "packagesPath": "C:\\Users\\nq9093\\.nuget\\packages\\",
+        "outputPath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\MyFirstBlazorApp\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nq9093\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/silenttools/_packaging/CoroPlusDev/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

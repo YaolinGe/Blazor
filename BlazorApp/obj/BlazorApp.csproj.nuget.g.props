@@ -13,4 +13,10 @@
     <SourceRoot Include="C:\Users\nq9093\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)plotly.blazor\3.0.0\buildTransitive\Plotly.Blazor.props" Condition="Exists('$(NuGetPackageRoot)plotly.blazor\3.0.0\buildTransitive\Plotly.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)blazorise\1.3.1\buildTransitive\Blazorise.props" Condition="Exists('$(NuGetPackageRoot)blazorise\1.3.1\buildTransitive\Blazorise.props')" />
+    <Import Project="$(NuGetPackageRoot)blazorise.charts\1.3.1\buildTransitive\Blazorise.Charts.props" Condition="Exists('$(NuGetPackageRoot)blazorise.charts\1.3.1\buildTransitive\Blazorise.Charts.props')" />
+    <Import Project="$(NuGetPackageRoot)blazorise.bootstrap\1.3.1\buildTransitive\Blazorise.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)blazorise.bootstrap\1.3.1\buildTransitive\Blazorise.Bootstrap.props')" />
+  </ImportGroup>
 </Project>
