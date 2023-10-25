@@ -7,6 +7,10 @@
 <p role="status">Current count: @currentCount</p>
 <h3>Current score: @score</h3>
 
+<MyFirstComponent Text="Hello" Visible=true/>
+<MySecondComponent/>
+<MySecondComponent CurrentCountValue=@currentCount/>
+
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 

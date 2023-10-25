@@ -1,0 +1,90 @@
+﻿<div>
+    CurrentCounterValue is @CurrentCountValue 
+
+</div>
+
+
+<div>
+    @if (Visible)
+    {
+        <h1>@Text</h1>
+    }
+</div>
+
+<div>
+    <input value=@InputSize/>
+    <input value=@DoubleInputSize()/>
+    <MyHeader Text=@HeaderText Visible=@HeaderVisible/>
+</div>
+
+<div>
+    <input size=@(InputSize * 3)/>
+    <input size=@InputSize/>
+    <input value=@($"Size is {InputSize}")/>
+    <input value=@($"Size is {DoubleInputSize()}")/>
+</div>
+
+
+@for (int i = 0; i < 10; i++)
+{
+    <div>
+        <input size=@(InputSize * i)/>
+    </div>
+}
+
+<div class="row">
+    <div class="col-4">To HTML attribute using .ToString()</div>
+    <div class="col-8"><input readonly value=@MyPerson/></div>
+</div>
+
+<div class="row">
+    <div class="col-4">To component as object</div>
+    <div class="col-8">
+        <PersonView Person=@MyPerson/>
+    </div>
+</div>
+
+
+@code
+{
+    private int CurrentCountValue = 42;
+
+    [Parameter]
+    public bool Visible { get; set; } = true;
+
+    [Parameter]
+    public string Text { get; set; }
+
+    int InputSize = 8;
+    bool HeaderVisible = true;
+    string HeaderText = "Value of variable";
+
+    private int DoubleInputSize()
+    {
+        return InputSize * 2; 
+    }
+
+    Person MyPerson;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        MyPerson = new Person
+        {
+            Salutation = "Mr",
+            GivenName = "Peter",
+            FamilyName = "Morris"
+        }; 
+    }
+
+    public class Person
+    {
+        public string Salutation { get; set; }
+        public string GivenName { get; set; }
+        public string FamilyName { get; set; }
+
+        public override string ToString() => $"{Salutation} {GivenName} {FamilyName}"; 
+    }
+}
+
+

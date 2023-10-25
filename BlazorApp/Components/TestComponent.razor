@@ -1,0 +1,11 @@
+﻿<h3>TestComponent</h3>
+
+<h1 @onclick=H1Clicked>Hello!</h1>
+
+@code
+{
+    public void H1Clicked(MouseEventArgs args)
+    {
+        System.Diagnostics.Debug.WriteLine("H1 clicked");
+    }
+}
