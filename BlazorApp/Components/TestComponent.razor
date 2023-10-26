@@ -1,6 +1,65 @@
-﻿<h3>TestComponent</h3>
+﻿@page "/test"
+@page "/t/{id}"
+@page "/order/{num:int}"
+
+
+<h1>
+    TestCut: 
+    @if (string.IsNullOrEmpty(id))
+    {
+        @:None 
+    }
+    else
+    {
+        @id 
+    }
+</h1>
+
+<h2>
+    Order Number: 
+    @if (!number.HasValue)
+    {
+        @:None
+    }
+    else
+    {
+        @number
+    }
+</h2>
+
+<h3>Select order</h3>
+<ul>
+    <li><a href="/order/1">Order 1</a></li>
+    <li><a href="/order/2">Order 2</a></li>
+    <li><a href="/order/432">Order 432</a></li>
+</ul>
+
+@code
+{
+    [Parameter]
+    public int? number { get; set; }
+}
+
+<h2>
+    Generate test
+</h2>
+
+<ul>
+    <li><a href="/t/good">Good</a></li>
+    <li><a href="/t/bad">Bad</a></li>
+    <li><a href="/t/netrual">Netrual</a></li>
+</ul>
+
 
 <h1 @onclick=H1Clicked>Hello!</h1>
+
+@code
+{
+    [Parameter]
+    public string id { get; set; }
+
+}
+
 
 @code
 {
