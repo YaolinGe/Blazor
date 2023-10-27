@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vvzjdbt89E8kqG5qhyfjCEl2ujZH6tiIwWLnX7AqkqHYaGmzEUvNEoWY63wGlpWbamZ3FwzkqG26mNrIpxv6YQ==",
+  "dgSpecHash": "+mnl9Ms9j3jjfwEYepziGyuKh0R6GcFXWnrt1X13h6jGcOwRdLH00WXR4QbC0wZ0IwhfLBgBXSZ7hIBW9A7gwg==",
   "success": true,
-  "projectFilePath": "C:\\cygwin64\\home\\nq9093\\CodeSpace\\Blazor\\BlazorApp\\BlazorApp.csproj",
+  "projectFilePath": "C:\\Users\\nq9093\\Downloads\\CodeSpace\\Blazor\\BlazorApp\\BlazorApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nq9093\\.nuget\\packages\\blazorise\\1.3.1\\blazorise.1.3.1.nupkg.sha512",
     "C:\\Users\\nq9093\\.nuget\\packages\\blazorise.bootstrap\\1.3.1\\blazorise.bootstrap.1.3.1.nupkg.sha512",
