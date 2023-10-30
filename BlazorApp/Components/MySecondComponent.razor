@@ -2,8 +2,22 @@
     CurrentCounterValue of MySecondComponent is @CurrentCountValue
 </div>
 
+<div>
+    Last multiple of three: @LastMultipleOfThree 
+
+    <Counter OnMultipleOfThree = @UpdateLastMultipleOfThreeValue />
+
+</div>
 
 @code {
+    int LastMultipleOfThree = 0; 
+
+    private void UpdateLastMultipleOfThreeValue(int value)
+    {
+        LastMultipleOfThree = value; 
+    }
+
     [Parameter]
-    public int CurrentCountValue { get; set; }
+    public int CurrentCountValue { get; set; } = 40; 
+
 }

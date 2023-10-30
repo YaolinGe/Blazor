@@ -1,68 +1,48 @@
 ﻿@page "/counter"
 
-<PageTitle>Counter</PageTitle>
-
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
-<h3>Current score: @score</h3>
-
-<MyFirstComponent Text="Hello" Visible=true/>
-<MySecondComponent/>
-<MySecondComponent CurrentCountValue=@currentCount/>
+<p>Current count: @currentCount</p>
 
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick=IncrementCount>Click me</button>
 
-<p me="test">Hello here comes the new test!</p>
+<div>
+    CurrentCounterValue in MyFirstComponent is @currentCount
+</div>
 
-<p>First render: @isFirstRender</p>
-
-<Button Color="Color.Primary" Clicked="@(async () => await HandleRedraw())">Redraw</Button>
-<LineChart @ref="lineChart" TItem="double" />
+<button @onclick=UpdateCurrentCounterValue>Update</button>
 
 @code {
-    LineChart<double> lineChart;
-    private List<double> scoreData = new List<double>();
-    private List<string> labels = new List<string>(); 
-    private bool isFirstRender = true; 
-
     private int currentCount = 0;
-    private double score = 3.14;
-    Random random = new Random();
 
-    private void IncrementCount()
+    [Parameter]
+    public int CurrentCountValue { get; set; }
+
+    void UpdateCurrentCounterValue()
+    {
+        CurrentCountValue++;
+    }
+
+    [Parameter]
+    public Action<int> OnMultipleOfTwoAction { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnMultipleOfThree { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnTime { get; set; }
+
+    private async Task IncrementCount()
     {
         currentCount++;
-        score = random.Next(1, 20);
-        scoreData.Add(score);
-        labels.Add(currentCount.ToString());
-    }
+        if (currentCount % 2 == 0)
+            OnMultipleOfTwoAction?.Invoke(currentCount);
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        isFirstRender = firstRender;
-        if (firstRender)
-        {
-            await HandleRedraw();
-        }
-    }
+        if (currentCount % 3 == 0)
+            await OnMultipleOfThree.InvokeAsync(currentCount);
 
-    async Task HandleRedraw()
-    {
-        await lineChart.Clear();
-        await lineChart.AddLabelsDatasetsAndUpdate(labels, GetLineChartDataset());
-    }
-
-    LineChartDataset<double> GetLineChartDataset()
-    {
-        return new LineChartDataset<double>
-            {
-                Label = "# of randoms",
-                Data = scoreData,
-                Fill = true,
-                PointRadius = 3,
-                CubicInterpolationMode = "monotone",
-            };
+        if (currentCount % 5 == 0)
+            await OnTime.InvokeAsync(currentCount);
     }
 }
