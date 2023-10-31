@@ -1,0 +1,34 @@
+﻿@page "/"
+
+<h1>Toggle the options</h1>
+<input @bind-value=FirstOptionValue type="checkbox" /> First option
+<br />
+<input @bind-value=SecondOptionValue type="checkbox" /> Second option
+<br @ />
+
+<ul>
+    <li>FirstOption = @FirstOption</li>
+    <li>SecondOption = @SecondOption</li>
+</ul>
+
+@code
+{
+    [CascadingParameter(Name = "FirstOption")]
+    private bool FirstOption { get; set; }
+
+    [CascadingParameter(Name = "SecondOption")]
+    private bool SecondOption { get; set; }
+}
+
+<CascadingValue Name="FirstOption" Value=@FirstOptionValue>
+    <CascadingValue Name="SecondOption" Value=@SecondOptionValue>
+        <MyFirstComponent />
+    </CascadingValue>
+</CascadingValue>
+
+@code 
+{
+    private bool FirstOptionValue;
+    private bool SecondOptionValue;
+}
+
