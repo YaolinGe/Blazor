@@ -1,34 +1,20 @@
 ﻿@page "/"
 
 <h1>Toggle the options</h1>
-<input @bind-value=FirstOptionValue type="checkbox" /> First option
+<input @bind-value=fOpv type="checkbox" /> Tick/Untick to toggle the option
 <br />
-<input @bind-value=SecondOptionValue type="checkbox" /> Second option
-<br @ />
+<input @bind-value=sOpv type="checkbox" /> Tick/Untick to toggle the option
+<br />
 
-<ul>
-    <li>FirstOption = @FirstOption</li>
-    <li>SecondOption = @SecondOption</li>
-</ul>
-
-@code
-{
-    [CascadingParameter(Name = "FirstOption")]
-    private bool FirstOption { get; set; }
-
-    [CascadingParameter(Name = "SecondOption")]
-    private bool SecondOption { get; set; }
-}
-
-<CascadingValue Name="FirstOption" Value=@FirstOptionValue>
-    <CascadingValue Name="SecondOption" Value=@SecondOptionValue>
-        <MyFirstComponent />
+<CascadingValue Name="FOP" Value=@fOpv>
+    <CascadingValue Name="SOP" Value=@sOpv>
+        <CascadingChildComponent />
     </CascadingValue>
 </CascadingValue>
 
 @code 
 {
-    private bool FirstOptionValue;
-    private bool SecondOptionValue;
+    private bool fOpv;
+    private bool sOpv;
 }
 

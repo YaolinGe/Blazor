@@ -1,0 +1,15 @@
+﻿
+<br />
+<ul>
+    <li>1st Option is updated to be @fOp</li>
+    <li>2nd Option is updated to be @sOp</li>
+</ul>
+
+@code
+{
+    [CascadingParameter(Name = "FOP")]
+    private bool fOp { get; set; }
+
+    [CascadingParameter(Name = "SOP")]
+    private bool sOp { get; set; }
+}
