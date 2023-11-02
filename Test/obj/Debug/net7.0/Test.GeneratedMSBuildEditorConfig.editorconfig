@@ -20,16 +20,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/CaptureUnexpectedParameter.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXB0dXJlVW5leHBlY3RlZFBhcmFtZXRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/CascadingChildComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXNjYWRpbmdDaGlsZENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/ChildComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGlsZENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/CodeGeneratedHtml.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb2RlR2VuZXJhdGVkSHRtbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/DisplayMultiThread.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEaXNwbGF5TXVsdGlUaHJlYWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/MyFirstComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNeUZpcnN0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/ParentComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYXJlbnRDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/TestComponent.razor]
@@ -56,8 +72,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3ZlcnJpZGVDYXNjYWRpbmcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Shared/AsychronousInitComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFzeWNocm9ub3VzSW5pdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Shared/SynchronousInitComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN5bmNocm9ub3VzSW5pdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nq9093/CodeSpace/Blazor/Test/_Imports.razor]

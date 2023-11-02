@@ -1,0 +1,8 @@
+﻿@page "/threads"
+
+<h1>Components with synchronous OnInitialized()</h1>
+@for(int i = 0; i < 5; i++)
+{
+    <AsychronousInitComponent />
+    @* <SynchronousInitComponent /> *@
+}
