@@ -7,3 +7,6 @@
 
 ## Double checks
 - `Multi-threaded rendering` needs to be checked closely.
+
+## Data binding
+- `Blazor` provides a suitable way to bind data for binding the data values to the variable in the class. 
