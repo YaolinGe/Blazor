@@ -198,13 +198,13 @@
       "mscorlib.dll": "sha256-8OmdVHzoN7xteY5ehp0L8R17I9QxFkH2lUVHFuslE0s=",
       "netstandard.dll": "sha256-urq+e2ZQXxmOWMRxTR92529HnUVu6+kyVnfF6SoLad8=",
       "System.Private.CoreLib.dll": "sha256-ixnF\/wVKLHZM1N0lfJufpZ41EC2LvvyiSqdW43h3Xew=",
-      "BlazingTicTacToe.dll": "sha256-Koh+Rl4b3SY8en7KLr0d7T+Tj3gt+O3uxZeZZHl+RLg="
+      "BlazingTicTacToe.dll": "sha256-LUe9jrI4lT9mqaD8rWCzy\/\/JK3TQNzw6baqHXkKRDSw="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "BlazingTicTacToe.pdb": "sha256-dLilmquVI3Z0Qu7d47yrYjpB2VmxUuSOIB+DNPdNNz4="
+      "BlazingTicTacToe.pdb": "sha256-pfxszb+PQ95tq9CDlQOtj3bwGWSNeSrIq2EwN37Fg4E="
     },
     "runtime": {
       "dotnet.7.0.12.c2kzjs6234.js": "sha256-cPJgWy8SjMaYFeimGkYy23ls+rDZVmoC\/eMoHpqRc+4=",

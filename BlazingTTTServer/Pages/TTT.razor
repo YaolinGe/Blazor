@@ -1,0 +1,112 @@
+﻿@page "/ttt"
+@using BlazingTTTServer.AI
+@inject Data.GameState GameState
+
+<div>
+    <div class="board">
+        @for (int i = 0; i < 3; i++)
+        {
+            int row = i;
+            for (int j = 0; j < 3; j++)
+            {
+                int col = j;
+                <div class="square" @onclick="()=> SquareCliked(row, col)">
+                    <h5 class="char">@GameState.Board[row, col]</h5>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    char[,] Board => GameState.Board; 
+    char Player => GameState.Player;
+
+    List<List<int[]>> WinningCombos = new()
+    {
+        //First row
+        new List<int[]>() {new int[] { 0,0 }, new int[] { 0, 1 }, new int[] { 0, 2} },
+        //Second row
+        new List<int[]>() {new int[] { 1,0 }, new int[] { 1, 1 }, new int[] { 1, 2} },
+        //Third row
+        new List<int[]>() {new int[] { 2,0 }, new int[] { 2, 1 }, new int[] { 2, 2} },
+
+        //First column
+        new List<int[]>() {new int[] { 0,0 }, new int[] { 1, 0 }, new int[] { 2, 0} },
+        //Second column
+        new List<int[]>() {new int[] { 0,1 }, new int[] { 1, 1 }, new int[] { 2, 1} },
+        //Third column
+        new List<int[]>() {new int[] { 0,2 }, new int[] { 1, 2 }, new int[] { 2, 2} },
+
+        //Backward diagonal
+        new List<int[]>() {new int[] { 0,0 }, new int[] { 1, 1 }, new int[] { 2, 2} },
+        //Forward diagonal
+        new List<int[]>() {new int[] { 0,2 }, new int[] { 1, 1 }, new int[] { 2, 0} },
+    };
+
+    private async Task SquareCliked(int row, int col)
+    {
+        if (Board[row, col] != ' ') return;
+        Board[row, col] = Player;
+
+        MinMaxAlgorithm.Turn currentTurn = MinMaxAlgorithm.GetNextBestMove(Board);
+        if (!(currentTurn.row == -1 && currentTurn.col == -1))
+            Board[currentTurn.row, currentTurn.col] = 'x';
+
+        foreach (var combo in WinningCombos)
+        {
+            int[] first = combo[0];
+            int[] second = combo[1];
+            int[] third = combo[2];
+            if (Board[first[0], first[1]] == ' ' || Board[second[0], second[1]] == ' ' || Board[third[0], third[1]] == ' ') continue;
+            if (Board[first[0], first[1]] == Board[second[0], second[1]] && Board[second[0], second[1]] == Board[third[0], third[1]] && Board[first[0], first[1]] == Board[third[0], third[1]])
+            {
+                string winner = Player == 'o' ? "AI" : "Player ONE";
+                System.Diagnostics.Debug.WriteLine(winner + "Wins");
+                await Task.Delay(5000);
+                // TODO: Add display winner alert
+
+                ResetGame();
+            }
+        }
+
+        if (IsGameReset())
+        {
+            ResetGame();
+        }
+    }
+
+    private bool IsGameReset()
+    {
+        bool isReset = true;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (Board[i, j] == ' ')
+                {
+                    isReset = false;
+                }
+            }
+        }
+        return isReset;
+    }
+
+    private void ResetGame()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Board[i, j] = ' ';
+            }
+        }
+    }
+
+    // Pop up window to display the winner 
+    private void DisplayWinner(string winner)
+    {
+        Console.WriteLine(winner);
+    }
+}
+
