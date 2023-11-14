@@ -6,4 +6,12 @@ ActivePageProvider:
 Some code here!
 </Tile>
 ```
--rem and font-size
+- rem and font-size
+
+
+## To check
+- component lifecycle
+-
+
+## Fix CA certificate issue
+- `conda config --set ssl_verify certificate.crt`

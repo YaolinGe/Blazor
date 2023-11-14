@@ -1,20 +1,23 @@
 ﻿@page "/"
 
-<h1>Toggle the options</h1>
+@* <h1>Toggle the options</h1>
 <input @bind-value=fOpv type="checkbox" /> Tick/Untick to toggle the option
 <br />
 <input @bind-value=sOpv type="checkbox" /> Tick/Untick to toggle the option
 <br />
+ *@
 
-<CascadingValue Name="FOP" Value=@fOpv>
+<InitializeComponent />
+
+@* <CascadingValue Name="FOP" Value=@fOpv>
     <CascadingValue Name="SOP" Value=@sOpv>
         <CascadingChildComponent />
     </CascadingValue>
-</CascadingValue>
+</CascadingValue> *@
 
-@code 
+@* @code 
 {
     private bool fOpv;
     private bool sOpv;
-}
+} *@
 
