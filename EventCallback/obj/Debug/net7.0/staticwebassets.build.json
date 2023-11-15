@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "8lCV6BaYxAszAuH8a3MNvCxU9gC+Jt4OY5Zs7YXpzgU=",
+  "Source": "EventCallback",
+  "BasePath": "_content/EventCallback",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "EventCallback\\wwwroot",
+      "Source": "EventCallback",
+      "ContentRoot": "C:\\Users\\nq9093\\CodeSpace\\Blazor\\EventCallback\\wwwroot\\",
+      "BasePath": "_content/EventCallback",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\nq9093\\CodeSpace\\Blazor\\EventCallback\\wwwroot\\css\\site.css",
+      "SourceId": "EventCallback",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nq9093\\CodeSpace\\Blazor\\EventCallback\\wwwroot\\",
+      "BasePath": "_content/EventCallback",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}

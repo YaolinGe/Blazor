@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXNjYWRpbmdDaGlsZENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/Child.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGlsZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/ChildComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGlsZENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,8 +44,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEaXNwbGF5TXVsdGlUaHJlYWQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/EventComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/MyFirstComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNeUZpcnN0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nq9093/CodeSpace/Blazor/Test/Components/Parent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYXJlbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nq9093/CodeSpace/Blazor/Test/Components/ParentComponent.razor]

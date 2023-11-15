@@ -1,0 +1,21 @@
+﻿<h1>
+    parent component
+</h1>
+
+<hr />
+
+<Child ButtonClicked="update" />
+
+<hr />
+
+<h3>@message</h3>
+
+@code 
+{
+    private string message = "Hello parent"; 
+
+    private void update(MouseEventArgs e)
+    {
+        message = $"parent message is updated and clicked at {e.ClientX}:{e.ClientY}!";     
+    }
+}

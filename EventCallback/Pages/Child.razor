@@ -1,0 +1,23 @@
+﻿
+<h1>
+    @message 
+</h1>
+
+<button @onclick="OnClick">
+    Click me
+</button>
+
+@code 
+{
+    private string message = "Hello World!";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> ButtonClicked { get; set; }
+
+    private void OnClick(MouseEventArgs e)
+    {
+        message = $"Button clicked! at child component {e.ScreenX}:{e.ScreenY}!"; 
+        ButtonClicked.InvokeAsync(e);
+    }
+
+}
