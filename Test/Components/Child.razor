@@ -1,17 +1,87 @@
-﻿<p>
-    <button @onclick="OnClickCallback">
-        Trigger a Parent component method
+﻿
+<hr />
+Message: @message
+<div>
+    <button @onclick="updateMessage">
+        Update message
     </button>
-</p>
+</div>
+<hr />
+
+
 
 @code 
 {
     [Parameter]
-    public string? Title { get; set; }
+    public string message { get; set; } 
 
     [Parameter]
-    public RenderFragment? ChildComponent { get; set; }
+    public EventCallback Instance { get; set; }
 
-    [Parameter]
-    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
+    private void updateMessage()
+    {
+        message = "updated message";
+        Instance.InvokeAsync();
+    }
 }
+
+
+@* =================================================== *@
+@* <hr />
+<h3>Child component</h3>
+@foreach (var item in AdditionalAttributes)
+{
+    <div>@item.Key: @item.Value</div>
+}
+<hr />
+
+@code 
+{
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; } = new();  
+}
+ *@
+
+@* ===================================================== *@
+@* @inject IJSRuntime JSRuntime 
+
+<div>
+    Url Parameter: @UrlParameter 
+    <a href="/parameters-set?UrlParameter=@RandomString()">Update UrlParameters</a>
+</div>
+
+@code 
+{
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? UrlParameter { get; set; } = "";
+
+    protected override void OnParametersSet() => JSRuntime.InvokeVoidAsync("alert", "ParametersSet phase of the Parent component triggered. "); 
+
+    private string RandomString()
+    {
+        return Guid.NewGuid().ToString();
+    }
+}
+ *@
+
+
+@* ==================================================== *@
+@* Test of the lifecyle of the child component or a component lifecycle is being tested! *@
+@* @inject IJSRuntime JSRuntime
+
+<h3>Child component</h3>
+
+<div class="border border-primary border-3 m-3">
+    <h3>ChildComponent</h3>
+    Component Parameter: @ComponentParameter
+</div>
+
+<h3>Child component</h3>
+
+@code {
+    [Parameter]
+    public string ComponentParameter { get; set; } = "";
+
+    protected override void OnParametersSet() => JSRuntime.InvokeVoidAsync("alert", "ParametersSet phase of the CHILD component triggered.");
+} *@

@@ -1,18 +1,23 @@
-﻿
-<h1>Parent-child example</h1>
+﻿@inject IJSRuntime JSRuntime
+<h1>Parent Component</h1>
 
-<Child Title="Panel Title from Parent" OnClickCallback="@ShowMessage">
-    Content of the child component is supplied by the parent component. 
-</Child>
+<Child message=@message Instance="StateHasChanged"/>
 
-<p>@message</p>
+@* <div>
+    message: @message
+</div>
+ *@
+<h2>Parent component</h2>
 
 @code 
 {
-    private string? message; 
+    private string message = "original message";
 
-    private void ShowMessage(MouseEventArgs e)
+    // override the StateHasChanged 
+
+    protected override void StateHasChanged()
     {
-        message = $"Blaze a new trail with Blazor! ({e.ScreenX}:{e.ScreenY})";
+        JSRuntime.InvokeVoidAsync("alert", "StateHasChanged phase of the Parent component triggered. ");
+        base.StateHasChanged();
     }
 }
