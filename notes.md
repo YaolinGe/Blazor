@@ -27,6 +27,8 @@ Some code here!
 ```
 - rem and font-size
 
+## Bobben
+- Use data from the sensor to move the cursor and map onto the tile and so on. 
 
 ## To check
 - component lifecycle
