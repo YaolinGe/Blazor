@@ -1,4 +1,4 @@
-﻿@inject IJSRuntime JSRuntime
+﻿
 <h1>Parent Component</h1>
 
 <Child message=@message Instance="StateHasChanged"/>
@@ -15,9 +15,9 @@
 
     // override the StateHasChanged 
 
-    protected override void StateHasChanged()
-    {
-        JSRuntime.InvokeVoidAsync("alert", "StateHasChanged phase of the Parent component triggered. ");
-        base.StateHasChanged();
-    }
+//     protected override void StateHasChanged()
+//     {
+//         JSRuntime.InvokeVoidAsync("alert", "StateHasChanged phase of the Parent component triggered. ");
+//         base.StateHasChanged();
+//     }
 }

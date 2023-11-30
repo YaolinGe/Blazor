@@ -1,3 +1,13 @@
+# Blazor app from blazor train youtube
+
+
+# Notes for Learning DEVOPS
+## Web
+- `my-file.html` is better than `my_file.html` cuz Google Search engine treats `-` as a word separator instead of `_`!
+
+## Reactive Extensions
+-
+
 # Blazor
 
 - `two-way binding` is required for parent and child component communication.
@@ -28,7 +38,7 @@ Some code here!
 - rem and font-size
 
 ## Bobben
-- Use data from the sensor to move the cursor and map onto the tile and so on. 
+- Use data from the sensor to move the cursor and map onto the tile and so on.
 
 ## To check
 - component lifecycle
