@@ -24,7 +24,6 @@
 ## Event handling
 - `MouseEventArgs` is automatically added by the Blazor runtime.
 - `Javascript` runs on the client, whereas `Blazor` server app runs on the server.
-I will have to finish the blazor tutorial as soon as possible!
 
 ### Notes for Sandvik Coromant learning training materials.  
 `ActivePageProvider`:
