@@ -8,6 +8,12 @@
 ## Reactive Extensions
 -
 
+## Dependency injection
+- `AddTransient<DemoLogic>` each time it produces a new instance. 
+- `AddSingleton<DemoLogic>` each tab has the same value.
+- `AddScoped<DemoLogic>` each tab has its own copy of singleton.
+
+
 # Blazor
 
 - `two-way binding` is required for parent and child component communication.
