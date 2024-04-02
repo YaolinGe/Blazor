@@ -1,5 +1,6 @@
 # Blazor app from blazor train youtube
 
+# Tim Corey and John tilton are useful 
 
 # Notes for Learning DEVOPS
 ## Web
