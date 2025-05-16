@@ -7,7 +7,7 @@
 - `my-file.html` is better than `my_file.html` cuz Google Search engine treats `-` as a word separator instead of `_`!
 
 ## Reactive Extensions
--
+- 
 
 ## Dependency injection
 - `AddTransient<DemoLogic>` each time it produces a new instance. 
