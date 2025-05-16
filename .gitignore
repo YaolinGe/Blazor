@@ -1,0 +1,50 @@
+# Build results
+bin/
+obj/
+out/
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code files
+.vscode/
+
+# Rider files
+.idea/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.psmdcp
+
+# Other
+*.log
+*.tmp
+*.cache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Do not ignore source code files
+!*.cs
+!*.razor
+!*.csproj
+!*.sln
+!*.json
+!*.xml
+!*.js
+!*.ts
+!*.css
+!*.scss
+!*.html
+!*.md
