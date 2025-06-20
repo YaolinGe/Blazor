@@ -1,0 +1,14 @@
+﻿<input type="checkbox" checked="@IsSelected" @onchange="CheckBoxChanged" />
+
+@code {
+    protected bool IsSelected { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnToggle { get; set; }
+
+    protected async Task CheckBoxChanged(ChangeEventArgs e)
+    {
+        IsSelected = (bool)e.Value;
+        await OnToggle.InvokeAsync(IsSelected);
+    }
+}

@@ -1,0 +1,251 @@
+﻿@page "/live-data"
+@using Microsoft.JSInterop
+@implements IAsyncDisposable
+@inject IJSRuntime JSRuntime
+
+<h3>Live Data Rendering - High Frequency Sine Wave</h3>
+
+<div class="controls">
+    <div class="frequency-control">
+        <label for="frequencySlider">Data Frequency: @currentFrequency Hz</label>
+        <input id="frequencySlider" type="range" min="1" max="100" value="@currentFrequency" 
+               @oninput="OnFrequencyChanged" class="slider" />
+    </div>
+    
+    <div class="control-buttons">
+        <button @onclick="StartStreaming" disabled="@isStreaming" class="btn btn-primary">Start</button>
+        <button @onclick="StopStreaming" disabled="@(!isStreaming)" class="btn btn-danger">Stop</button>
+        <button @onclick="ClearChart" class="btn btn-secondary">Clear</button>
+    </div>
+    
+    <div class="stats">
+        <span>Samples/Second: @samplesPerSecond</span>
+        <span>Total Samples: @totalSamples</span>
+        <span>FPS: @currentFps</span>
+    </div>
+</div>
+
+<div class="chart-container">
+    <canvas id="dataChart" width="1200" height="400"></canvas>
+</div>
+
+<style>
+    .controls {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .frequency-control {
+        margin-bottom: 15px;
+    }
+
+    .slider {
+        width: 300px;
+        margin-left: 10px;
+    }
+
+    .control-buttons {
+        margin: 15px 0;
+    }
+
+    .control-buttons button {
+        margin-right: 10px;
+    }
+
+    .stats {
+        font-family: monospace;
+        font-size: 14px;
+    }
+
+    .stats span {
+        margin-right: 20px;
+        padding: 5px 10px;
+        background-color: #e9ecef;
+        border-radius: 3px;
+    }
+
+    .chart-container {
+        margin: 20px 0;
+        border: 2px solid #333;
+        border-radius: 5px;
+        background-color: #000;
+        display: inline-block;
+    }
+
+    #dataChart {
+        display: block;
+    }
+</style>
+
+@code {
+    private IJSObjectReference? jsModule;
+    private DotNetObjectReference<LiveDataRendering>? dotNetRef;
+    
+    private bool isStreaming = false;
+    private int currentFrequency = 10; // Hz
+    private Timer? dataTimer;
+    private Timer? statsTimer;
+    
+    private double phase = 0.0;
+    private int totalSamples = 0;
+    private int samplesPerSecond = 0;
+    private int currentFps = 0;
+    private int sampleCount = 0;
+    private DateTime lastStatsUpdate = DateTime.UtcNow;
+
+    // Configuration constants
+    private const int SAMPLES_PER_BATCH = 133; // 4000/30 ≈ 133 samples per frame at 30 FPS
+    private const int TARGET_FPS = 30;
+    private const int TIMER_INTERVAL_MS = 1000 / TARGET_FPS; // ~33ms for 30 FPS
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            dotNetRef = DotNetObjectReference.Create(this);
+            jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/Pages/LiveDataRendering.razor.js");
+            await jsModule.InvokeVoidAsync("initializeChart", "dataChart", dotNetRef);
+        }
+    }
+
+    private async Task OnFrequencyChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int newFrequency))
+        {
+            currentFrequency = newFrequency;
+            StateHasChanged();
+            
+            if (isStreaming)
+            {
+                // Restart streaming with new frequency
+                await StopStreaming();
+                await StartStreaming();
+            }
+        }
+    }    private Task StartStreaming()
+    {
+        if (isStreaming) return Task.CompletedTask;
+        
+        isStreaming = true;
+        phase = 0.0;
+        sampleCount = 0;
+        lastStatsUpdate = DateTime.UtcNow;
+        
+        // Start data generation timer
+        dataTimer = new Timer(GenerateAndSendData, null, 0, TIMER_INTERVAL_MS);
+        
+        // Start stats update timer (every second)
+        statsTimer = new Timer(UpdateStats, null, 1000, 1000);
+        
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task StopStreaming()
+    {
+        if (!isStreaming) return Task.CompletedTask;
+        
+        isStreaming = false;
+        dataTimer?.Dispose();
+        statsTimer?.Dispose();
+        dataTimer = null;
+        statsTimer = null;
+        
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private async Task ClearChart()
+    {
+        if (jsModule != null)
+        {
+            await jsModule.InvokeVoidAsync("clearChart");
+            totalSamples = 0;
+            StateHasChanged();
+        }
+    }
+
+    private async void GenerateAndSendData(object? state)
+    {
+        if (!isStreaming || jsModule == null) return;
+
+        try
+        {
+            var data = GenerateSineWaveData(SAMPLES_PER_BATCH);
+            await jsModule.InvokeVoidAsync("addDataPoints", data);
+            
+            totalSamples += SAMPLES_PER_BATCH;
+            sampleCount += SAMPLES_PER_BATCH;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error generating data: {ex.Message}");
+        }
+    }
+
+    private double[] GenerateSineWaveData(int sampleCount)
+    {
+        var data = new double[sampleCount];
+        double phaseIncrement = 2.0 * Math.PI * currentFrequency / (currentFrequency * SAMPLES_PER_BATCH * TARGET_FPS);
+        
+        for (int i = 0; i < sampleCount; i++)
+        {
+            // Generate sine wave with some noise for more realistic data
+            double sineValue = Math.Sin(phase);
+            double noise = (Random.Shared.NextDouble() - 0.5) * 0.1; // 10% noise
+            data[i] = sineValue + noise;
+            
+            phase += phaseIncrement;
+        }
+        
+        // Keep phase in reasonable range
+        if (phase > 4 * Math.PI)
+        {
+            phase -= 4 * Math.PI;
+        }
+        
+        return data;
+    }
+
+    private async void UpdateStats(object? state)
+    {
+        var now = DateTime.UtcNow;
+        var elapsed = (now - lastStatsUpdate).TotalSeconds;
+        
+        if (elapsed > 0)
+        {
+            samplesPerSecond = (int)(sampleCount / elapsed);
+            sampleCount = 0;
+            lastStatsUpdate = now;
+        }
+        
+        if (jsModule != null)
+        {
+            currentFps = await jsModule.InvokeAsync<int>("getCurrentFps");
+        }
+        
+        await InvokeAsync(StateHasChanged);
+    }
+
+    [JSInvokable]
+    public void OnChartUpdated(int fps)
+    {
+        currentFps = fps;
+        InvokeAsync(StateHasChanged);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await StopStreaming();
+        
+        if (jsModule != null)
+        {
+            await jsModule.DisposeAsync();
+        }
+        
+        dotNetRef?.Dispose();
+    }
+}

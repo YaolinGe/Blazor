@@ -1,0 +1,48 @@
+﻿@page "/counter"
+@* @implements IDisposable *@
+@rendermode InteractiveServer
+
+@* <h3>Timer Example</h3> *@
+@* <p>Seconds elapsed: @seconds</p> *@
+
+
+<CounterChild OnToggle="ToggleChanged" />
+<CounterChild OnToggle="ToggleChanged" />
+<p>toggle @toggleCounts</p>
+
+@code {
+    protected int toggleCounts { get; set; } = 0;
+
+    protected void ToggleChanged(bool isSelected)
+    {
+        if (isSelected)
+            toggleCounts++;
+        else
+            toggleCounts--;
+    }
+}
+
+
+@* @code { *@
+@*     private System.Timers.Timer? timer; *@
+@*     private int seconds; *@
+
+@*     protected override void OnInitialized() *@
+@*     { *@
+@*         base.OnInitialized(); *@
+
+@*         timer = new System.Timers.Timer(500); *@
+@*         timer.Elapsed += (sender, args) => *@
+@*         { *@
+@*             seconds++; *@
+@*             InvokeAsync(StateHasChanged); *@
+@*         };  *@
+@*         timer.Start();  *@
+@*     } *@
+
+@*     public void Dispose() *@
+@*     { *@
+@*         timer?.Stop();  *@
+@*         timer?.Dispose(); *@
+@*     } *@
+@* } *@
