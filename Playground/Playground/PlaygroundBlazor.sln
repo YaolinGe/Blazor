@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaygroundBlazor", "PlaygroundBlazor.csproj", "{460ED872-3266-4490-AED3-CCC50D02A950}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "..\test\test.csproj", "{9468CE01-4E1B-4283-9EB3-231B34700832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{460ED872-3266-4490-AED3-CCC50D02A950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{460ED872-3266-4490-AED3-CCC50D02A950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{460ED872-3266-4490-AED3-CCC50D02A950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9468CE01-4E1B-4283-9EB3-231B34700832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9468CE01-4E1B-4283-9EB3-231B34700832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9468CE01-4E1B-4283-9EB3-231B34700832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9468CE01-4E1B-4283-9EB3-231B34700832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

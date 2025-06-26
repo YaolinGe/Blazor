@@ -6,7 +6,7 @@ class LiveDataRenderer {
         this.dotNetRef = dotNetRef;
         
         // Performance settings
-        this.maxDataPoints = 4000; // Maximum points to display
+        this.maxDataPoints = 720000; // Maximum points to display
         this.dataBuffer = [];
         this.renderBuffer = new Float32Array(this.maxDataPoints * 2); // x,y pairs
         
@@ -26,7 +26,7 @@ class LiveDataRenderer {
         // Data range
         this.yMin = -1.5;
         this.yMax = 1.5;
-        this.xRange = 2000; // Show last 2000 samples
+        this.xRange = this.maxDataPoints; // Show all possible points
         
         // Initialize
         this.setupCanvas();
